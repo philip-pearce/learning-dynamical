@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# This gives fortran the number of dimensions and components
+python source/setup_dim_comp.py
+
+gfortran -g -fcheck=all source/fitness.f90 source/inoutput.f90 source/neb.f90 source/driver.f90 -J obj -o neb
+gfortran -g -fcheck=all source/fitness.f90 source/inoutput.f90 source/neb.f90 source/driver_minima.f90 -J obj -o neb_minima
+gfortran -g -fcheck=all source/fitness.f90 source/inoutput.f90 source/neb.f90 source/driver_barriers.f90 -J obj -o neb_barriers
